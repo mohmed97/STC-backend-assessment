@@ -1,5 +1,6 @@
 package com.managefiles.service;
 
+import com.managefiles.entity.Permission;
 import com.managefiles.enums.PermissionLevel;
 import com.managefiles.repository.PermissionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +12,7 @@ public class PermissionService {
     @Autowired
     private PermissionRepository permissionRepository;
 
-    public boolean hasEditAccess(String userEmail) {
-        // Assuming there is a method in PermissionRepository to check if the user has EDIT access
-        return permissionRepository.existsByUserEmailAndPermissionLevel(userEmail, PermissionLevel.EDIT.name());
+    public void createPermission(Permission permission) {
+        permissionRepository.save(permission);
     }
 }

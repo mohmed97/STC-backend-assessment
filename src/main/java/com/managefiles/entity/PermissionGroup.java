@@ -13,6 +13,10 @@ public class PermissionGroup {
     @Column(name = "group_name", nullable = false)
     private String groupName;
 
+    public PermissionGroup(String groupName) {
+        this.groupName = groupName;
+    }
+
     public Long getId() {
         return id;
     }

@@ -20,6 +20,12 @@ public class Permission {
     @JoinColumn(name = "group_id")
     private PermissionGroup permissionGroup;
 
+    public Permission(String userEmail, String permissionLevel, PermissionGroup permissionGroup) {
+        this.userEmail = userEmail;
+        this.permissionLevel = permissionLevel;
+        this.permissionGroup = permissionGroup;
+    }
+
     public Long getId() {
         return id;
     }

@@ -1,5 +1,6 @@
 package com.managefiles.security;
 
+import com.managefiles.enums.PermissionLevel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -25,9 +26,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/api/items/create-space").hasAuthority("CREATE_SPACE")
-                .antMatchers("/api/items/create-folder").hasAuthority("CREATE_FOLDER")
-                .antMatchers("/api/items/create-file").hasAuthority("CREATE_FILE")
+                .antMatchers("/api/items/create-space").permitAll()
+                .antMatchers("/api/items/create-folder").hasAuthority(PermissionLevel.EDIT.name())
+                .antMatchers("/api/items/create-file").hasAuthority(PermissionLevel.EDIT.name())
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic()

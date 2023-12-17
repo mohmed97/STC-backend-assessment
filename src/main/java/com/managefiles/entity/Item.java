@@ -54,4 +54,12 @@ public class Item {
     public void setPermissionGroup(PermissionGroup permissionGroup) {
         this.permissionGroup = permissionGroup;
     }
+
+    public Long getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(Long parentId) {
+        this.parentId = parentId;
+    }
 }
